@@ -1,20 +1,51 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-menu contentId="home">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title>Menu</ion-title>
+      <ion-menu-toggle slot="end">
+        <ion-button fill="clear">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
     </ion-toolbar>
   </ion-header>
+  <ion-content>
+    <ion-button fill="clear" expand="block" fill="solid">
+      <ion-icon slot="start" name="home"></ion-icon>
+      Home
+    </ion-button>
+    <ion-button fill="clear" expand="block">
+      <ion-icon slot="start" name="book"></ion-icon>
+      Quiz
+    </ion-button>
+    <ion-button fill="clear" expand="block">
+      <ion-icon slot="start" name="information-circle"></ion-icon>
+      About
+    </ion-button>
+    <ion-button fill="clear" expand="block">
+      <ion-icon slot="start" name="help-circle"></ion-icon>
+      Help
+    </ion-button>
+    <ion-button fill="clear" expand="block">
+      <ion-icon slot="start" name="log-out"></ion-icon>
+      Logout
+    </ion-button>
+  </ion-content>
+</ion-menu>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content [fullscreen]="true">
+  <div class="ion-page" id="home">
+    <ion-header>
+      <ion-toolbar>
+        <ion-menu-toggle slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-menu-toggle>
+        <ion-title>Home</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+
+    </ion-content>
   </div>
 </ion-content>
