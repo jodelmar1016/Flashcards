@@ -1,0 +1,59 @@
+.home-toolbar{
+    --ion-background-color: #3AB3C1;
+}
+.container {
+    --ion-background-color:#333333;
+}
+.top{
+    border-bottom: 1px solid #707070;
+    color: #fff;
+    padding: 20px 25px;
+}
+.box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #606060;
+    padding: 0 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #3AB3C1;
+}
+.subject{
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+}
+
+.bottom{
+    color: #fff;
+    padding: 10px 25px;
+}
+.card{
+    border-left: 8px solid #3AB3C1;
+    padding: 0 10px;
+    background-color: #606060;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+.left h4{
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+.left p{
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #C9C9C9;
+}
+.btnReview{
+    width: 100px;
+    background-color: #3AB3C1;
+    border-radius: 20px;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
