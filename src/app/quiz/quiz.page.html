@@ -1,9 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>quiz</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="custom-dark">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Quiz</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true" color="custom-dark">
+  <!-- <div class="ion-page" id="quiz">
+    <ion-header>
+      <ion-toolbar color="custom-primary">
+        <ion-menu-toggle slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-menu-toggle>
+        <ion-title>Quiz</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
+    <ion-content color="custom-dark">
+
+    </ion-content>
+  </div> -->
 </ion-content>
