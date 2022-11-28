@@ -4,14 +4,20 @@
     align-items: center;
     margin: 20px 10px;
     padding: 0 8px;
-    background-color: var(--ion-color-custom-secondary);
+    background-color: var(--ion-color-custom-light);
 }
 .top p{
     margin: 10px 0;
+    color: var(--ion-color-text);
 }
 .divider{
     height: 1px;
     background-color: var(--ion-color-custom-secondary);
+}
+.cards-container{
+    height: 65%;
+    overflow-y: scroll;
+    margin: 10px 5px;
 }
 ion-card ion-card-content{
     display: flex;
@@ -19,5 +25,8 @@ ion-card ion-card-content{
     align-items: center;
 }
 ion-card{
-    border-left: 5px solid var(--ion-color-custom-primary);
+    border-left: 5px solid var(--ion-color-text);
+}
+.btn{
+    text-align: center;
 }

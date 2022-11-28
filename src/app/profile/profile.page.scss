@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding-top: 20px;
 }
 .top ion-img{
     width: 70px;
@@ -14,7 +14,8 @@
     margin: 5px;
 }
 .account-info{
-    background-color: var(--ion-color-custom-secondary);
+    background-color: var(--ion-color-text);
+    color: #fff;
     margin: 10px;
     border-radius: 15px;
     padding-bottom: 10px;
@@ -27,10 +28,10 @@
 }
 .divider{
     height: 1px;
-    background-color: #707070;
+    background-color: var(--ion-color-custom-light);
 }
 .item{
-    border-bottom: 3px solid gray;
+    border-bottom: 3px solid var(--ion-color-custom-light);
     margin: 20px 10px;
 }
 .item p{
@@ -41,7 +42,8 @@
     justify-content: space-between;
 }
 .progress{
-    background-color: var(--ion-color-custom-secondary);
+    background-color: var(--ion-color-text);
+    color: #fff;
     margin: 10px;
     border-radius: 15px;
     padding-bottom: 10px;
@@ -54,4 +56,14 @@
 }
 .item-container p{
     margin: 0;
+}
+.subject{
+    margin: 10px;
+    padding-top: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.result{
+    font-size: 12px;
+    color: var(--ion-color-custom-light);
 }
