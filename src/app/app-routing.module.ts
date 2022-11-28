@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'help-page',
     loadChildren: () => import('./help-page/help-page.module').then( m => m.HelpPagePageModule)
   },
+  {
+    path: 'card-list',
+    loadChildren: () => import('./card-list/card-list.module').then( m => m.CardListPageModule)
+  },
 
 ];
 
