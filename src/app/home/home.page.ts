@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { ok } from 'assert';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +29,35 @@ export class HomePage {
   ]
 
   constructor(
+    private alertCtrl: AlertController
   ) {}
+
+  async createSet(){
+    const alert = await this.alertCtrl.create({
+      header: "Create Set",
+      inputs: [
+        {
+          name: "title",
+          placeholder: "Title",
+          type: 'text'
+        }
+      ],
+      buttons: [
+        {
+          text: "Cancel",
+          role: "cancel"
+        },
+        {
+          text: "Add",
+          handler: (res) => {
+            this.data.push({title: res.title, noOfCards: "0"})
+          }
+        }
+      ]
+    });
+
+    await alert.present()
+  }
 
 
 }
