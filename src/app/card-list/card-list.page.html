@@ -11,46 +11,15 @@
 
 <ion-content color="background">
   <div class="container">
-    <div class="item-container">
-      <div class="top">
-        <h4>Term</h4>
-        <ion-buttons slot="end">
-          <ion-button id="openPopOver">
-            <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, iste vero voluptatem quos eveniet commodi enim illum quia atque necessitatibus est dolor voluptates rerum! Quisquam id sequi quae dolorum enim.</p>
-    </div>
-    <div class="item-container">
-      <div class="top">
-        <h4>Term</h4>
-        <ion-buttons slot="end">
-          <ion-button id="openPopOver">
-            <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, iste vero voluptatem quos eveniet commodi enim illum quia atque necessitatibus est dolor voluptates rerum! Quisquam id sequi quae dolorum enim.</p>
+    <div class="item-container" *ngFor="let item of list" (click)="openCard(item)">
+      <h4>{{ item.term }}</h4>
+      <p>{{ item.definition }}</p>
     </div>
   </div>
   <div class="btn">
-    <ion-button color="text" fill="solid" shape="round">
+    <ion-button (click)="addCard()" color="text" fill="solid" shape="round">
       <ion-icon slot="start" name="add"></ion-icon>
       Add Card
     </ion-button>
   </div>
-
-  <ion-popover trigger="openPopOver" triggerAction="click">
-    <ng-template>
-      <p class="popOver" (click)="edit()">
-        <ion-icon slot="start" name="pencil-outline"></ion-icon>
-        Edit
-      </p>
-      <p class="popOver" (click)="delete()" style="color: red;">
-        <ion-icon slot="start" name="trash"></ion-icon>
-        Delete
-      </p>
-    </ng-template>
-  </ion-popover>
 </ion-content>

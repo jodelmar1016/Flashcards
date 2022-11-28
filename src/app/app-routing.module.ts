@@ -42,6 +42,10 @@ const routes: Routes = [
     path: 'card-list',
     loadChildren: () => import('./card-list/card-list.module').then( m => m.CardListPageModule)
   },
+  {
+    path: 'edit-modal',
+    loadChildren: () => import('./modals/edit-modal/edit-modal.module').then( m => m.EditModalPageModule)
+  },
 
 ];
 
