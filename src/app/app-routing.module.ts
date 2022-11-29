@@ -46,6 +46,10 @@ const routes: Routes = [
     path: 'edit-modal',
     loadChildren: () => import('./modals/edit-modal/edit-modal.module').then( m => m.EditModalPageModule)
   },
+  {
+    path: 'select-subject',
+    loadChildren: () => import('./modals/select-subject/select-subject.module').then( m => m.SelectSubjectPageModule)
+  },
 
 ];
 

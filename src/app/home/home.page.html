@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" color="background">
-  <div class="top" id="open-modal">
-    <p>Mobile Computing</p>
+  <div class="top" (click)="selectSubject()">
+    <p>{{ selectedSubject }}</p>
     <ion-icon slot="end" name="chevron-down-outline"></ion-icon>
   </div>
   
