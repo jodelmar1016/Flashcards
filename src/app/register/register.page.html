@@ -1,9 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content color="text">
+  <div class="container">
+    <div>
+      <h1 class="top">Create Account</h1>
+    </div>
+    <div class="inputs">
+      <ion-input class="email" type="text" placeholder="Email"></ion-input>
+      <ion-input class="password" type="password" placeholder="Password"></ion-input>
+      <ion-input type="password" placeholder="Confirm Password"></ion-input>
+      <ion-button routerLink="/home" class="signup" color="background" expand="block" fill="solid" shape="round">
+        <p style="font-weight: bold;">Sign up</p>
+      </ion-button>
+    </div>
+    <div>
+      <h1 class="mid">OR</h1>
+    </div>
+    <div class="bottom">
+      <ion-button expand="block" fill="solid" shape="round">
+        <p style="font-weight: bold;">Facebook</p>
+      </ion-button>
+      <ion-button color="light" expand="block" fill="solid" shape="round">
+        <p style="color: blue; font-weight: bold;">G</p>
+        <p style="color: red; font-weight: bold;">O</p>
+        <p style="color: yellow; font-weight: bold;">O</p>
+        <p style="color: blue; font-weight: bold;">G</p>
+        <p style="color: green; font-weight: bold;">L</p>
+        <p style="color: red; font-weight: bold;">E</p>
+      </ion-button>
+    </div>
+  </div>
 </ion-content>
