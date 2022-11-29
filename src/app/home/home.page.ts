@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
-import { ok } from 'assert';
+import { AlertController, ModalController } from '@ionic/angular';
+import { SelectSubjectPage } from '../modals/select-subject/select-subject.page';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +8,7 @@ import { ok } from 'assert';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  selectedSubject: string = "All"
 
   data = [
     {
@@ -28,8 +29,20 @@ export class HomePage {
     },
   ]
 
+  subject = [
+    {
+      id: 1,
+      subject: "Mobile Computing"
+    },
+    {
+      id: 2,
+      subject: "Elective"
+    }
+  ]
+
   constructor(
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private modalCtrl: ModalController
   ) {}
 
   async createSet(){
@@ -57,6 +70,19 @@ export class HomePage {
     });
 
     await alert.present()
+  }
+
+  async selectSubject(){
+    const modal = await this.modalCtrl.create({
+      component: SelectSubjectPage,
+      componentProps: {subject: this.subject}
+    });
+
+    modal.onDidDismiss().then((data) => {
+      this.selectedSubject = data.data.subj;
+    });
+
+    await modal.present()
   }
 
 
