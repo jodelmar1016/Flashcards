@@ -1,0 +1,29 @@
+.container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 20px 30px;
+}
+.top{
+    font-size: 30px;
+    font-weight: bold;
+}
+.mid{
+    font-size: 20px;
+    font-weight: bold;
+}
+ion-input {
+    text-align: left;
+    border-bottom: 1px solid var(--ion-color-background);
+     --padding-bottom: 0px;
+     --padding-start: 0px;
+     font-size: 18px;
+}
+.email, .password{
+    margin-bottom: 10px;
+}
+.signup{
+    margin-top: 25px;
+}
