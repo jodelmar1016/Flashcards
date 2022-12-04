@@ -16,16 +16,16 @@
   <div class="divider"></div>
     
   <div class="cards-container">
-    <ion-card *ngFor="let item of data" color="custom-light">
+    <ion-card *ngFor="let set of sets" color="custom-light">
       <ion-card-content>
-        <ion-text routerLink="/card-list" color="custom-dark">
-          <h3 style="font-weight: bold;">{{ item.title }}</h3>
+        <ion-text (click)="gotoCardList(set.id)" color="custom-dark">
+          <h3 style="font-weight: bold;font-size: 18px;">{{ set.title }}</h3>
           <p>
             <ion-icon slot="start" name="tablet-portrait-outline"></ion-icon>
-            {{ item.noOfCards }} cards
+            {{ "0" }} cards
           </p>
         </ion-text>
-        <ion-button routerLink="/review" color="text" fill="solid" shape="round">
+        <ion-button size="small" routerLink="/review" color="text" fill="solid" shape="round">
           Review
         </ion-button>
       </ion-card-content>

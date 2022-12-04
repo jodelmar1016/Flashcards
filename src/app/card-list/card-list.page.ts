@@ -9,6 +9,8 @@ import { EditModalPage } from '../modals/edit-modal/edit-modal.page';
 })
 export class CardListPage implements OnInit {
 
+  setID: any = ""
+
   list =[
     {
       "term":"Term 1",
@@ -22,7 +24,7 @@ export class CardListPage implements OnInit {
 
   constructor(
     private alertCtrl: AlertController,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
   ) { }
 
   ngOnInit() {

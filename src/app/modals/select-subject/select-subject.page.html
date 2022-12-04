@@ -6,8 +6,8 @@
 
 <ion-content>
   
-  <ion-item *ngFor="let sub of subject" (click)="closeModal(sub.subject)">
-    <ion-label>{{ sub.subject }}</ion-label>
+  <ion-item *ngFor="let sub of subject" (click)="closeModal(sub.id, sub.title)">
+    <ion-label>{{ sub.title }}</ion-label>
   </ion-item>
 
 </ion-content>
