@@ -19,11 +19,20 @@ ion-input {
     border-bottom: 1px solid var(--ion-color-background);
      --padding-bottom: 0px;
      --padding-start: 0px;
-     font-size: 18px;
+     font-size: 20px;
 }
-.email, .password{
+.email, .password, .fullName{
     margin-bottom: 10px;
 }
 .signup{
     margin-top: 25px;
+}
+.footer{
+    margin-top: 10px;
+}
+.footer p{
+    margin: 0;
+}
+.footer ion-button{
+    margin: 0;
 }

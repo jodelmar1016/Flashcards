@@ -50,6 +50,10 @@ const routes: Routes = [
     path: 'select-subject',
     loadChildren: () => import('./modals/select-subject/select-subject.module').then( m => m.SelectSubjectPageModule)
   },
+  {
+    path: 'landing',
+    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
+  },
 
 ];
 
