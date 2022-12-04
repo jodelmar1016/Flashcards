@@ -10,15 +10,16 @@ export class SelectSubjectPage implements OnInit {
   @Input() subject: any
 
   constructor(
-    private modalCtrl: ModalController
-  ) { }
+    private modalCtrl: ModalController,
+  ) {}
 
   ngOnInit() {
   }
 
-  closeModal(sub: any){
+  closeModal(sub_id:string, sub_title: string){
     this.modalCtrl.dismiss({
-      subj: sub
+      subject_Title: sub_title,
+      subject_ID: sub_id
     })
   }
 
