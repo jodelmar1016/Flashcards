@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { SelectSubjectPage } from '../modals/select-subject/select-subject.page';
+import { DataServiceService } from '../services/data-service.service';
 
 @Component({
   selector: 'app-home',
@@ -8,42 +9,26 @@ import { SelectSubjectPage } from '../modals/select-subject/select-subject.page'
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+  // Subject container
+  subject: any = []
+
   selectedSubject: string = "All"
+  subjectID: string = ""
 
-  data = [
-    {
-      "title":"Module 1",
-      "noOfCards":"10"
-    },
-    {
-      "title":"Module 2",
-      "noOfCards":"15"
-    },
-    {
-      "title":"Module 3",
-      "noOfCards":"20"
-    },
-    {
-      "title":"Module 4",
-      "noOfCards":"13"
-    },
-  ]
-
-  subject = [
-    {
-      id: 1,
-      subject: "Mobile Computing"
-    },
-    {
-      id: 2,
-      subject: "Elective"
-    }
-  ]
+  // Sets container
+  sets: any = []
 
   constructor(
     private alertCtrl: AlertController,
-    private modalCtrl: ModalController
-  ) {}
+    private modalCtrl: ModalController,
+    private dataService: DataServiceService,
+  ) {
+    // Get all subject
+    this.dataService.getSubject().subscribe(res=>{
+      this.subject=res
+    })
+  }
 
   async createSet(){
     const alert = await this.alertCtrl.create({
@@ -63,7 +48,7 @@ export class HomePage {
         {
           text: "Add",
           handler: (res) => {
-            this.data.push({title: res.title, noOfCards: "0"})
+            // this.data.push({title: res.title, noOfCards: "0"})
           }
         }
       ]
@@ -73,16 +58,28 @@ export class HomePage {
   }
 
   async selectSubject(){
+    // Create Modal
     const modal = await this.modalCtrl.create({
       component: SelectSubjectPage,
       componentProps: {subject: this.subject}
     });
 
+    // On modal dismiss, get title and Id
     modal.onDidDismiss().then((data) => {
-      this.selectedSubject = data.data.subj;
+      this.selectedSubject = data.data.subject_Title;
+      this.subjectID = data.data.subject_ID;
+      // Get all sets under selected subject
+      this.dataService.getSets(this.subjectID).subscribe(res => {
+        this.sets = res
+      })
+      // this.dataService.getCards()
     });
 
     await modal.present()
+  }
+
+  gotoCardList(set_id: string){
+    
   }
 
 
