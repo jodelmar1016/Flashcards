@@ -10,6 +10,7 @@ export interface Subject{
 export interface Sets{
   id? : string,
   title : string,
+  no_of_cards: number
 }
 
 export interface Cards{
@@ -40,5 +41,20 @@ export class DataServiceService {
   getCards(subject_ID: string, set_ID: string):Observable<Cards[]>{
     const notesRef = collection(this.firestore, `subject/${subject_ID}/sets/${set_ID}/cards`)
     return collectionData(notesRef, {idField: 'id'}) as Observable<Cards[]>
+  }
+
+  addCard(card:Cards, subject_ID:any, set_ID:any){
+    const noteRef = collection(this.firestore, `subject/${subject_ID}/sets/${set_ID}/cards`)
+    return addDoc(noteRef, card)
+  }
+
+  updateCard(card: Cards, subject_ID:any, set_ID:any, card_ID:any){
+    const noteRef = doc(this.firestore, `subject/${subject_ID}/sets/${set_ID}/cards/${card_ID}`);
+    return updateDoc(noteRef, {term: card.term, definition: card.definition});
+  }
+
+  deleteCard(subject_ID:any, set_ID:any, card_ID:any){
+    const noteRef = doc(this.firestore, `subject/${subject_ID}/sets/${set_ID}/cards/${card_ID}`);
+    return deleteDoc(noteRef);
   }
 }
