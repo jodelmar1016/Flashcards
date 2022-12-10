@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { EditModalPage } from '../modals/edit-modal/edit-modal.page';
+import { DataServiceService } from '../services/data-service.service';
+import { Router } from '@angular/router';
+import { AddCardsPage } from '../modals/add-cards/add-cards.page';
 
 @Component({
   selector: 'app-card-list',
@@ -9,63 +12,39 @@ import { EditModalPage } from '../modals/edit-modal/edit-modal.page';
 })
 export class CardListPage implements OnInit {
 
-  setID: any = ""
-
-  list =[
-    {
-      "term":"Term 1",
-      "definition":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, iste vero voluptatem quos eveniet commodi enim illum quia atque necessitatibus est dolor voluptates rerum! Quisquam id sequi quae dolorum enim."
-    },
-    {
-      "term":"Term 2",
-      "definition":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, iste vero voluptatem quos eveniet commodi enim illum quia atque necessitatibus est dolor voluptates rerum! Quisquam id sequi quae dolorum enim."
-    },
-  ]
+  // data.setTitle, data.subjectID, data.setID
+  data: any = ""
+  
+  cardList: any  = []
 
   constructor(
     private alertCtrl: AlertController,
     private modalCtrl: ModalController,
-  ) { }
+    private router: Router,
+    private dataService: DataServiceService
+  ) { 
+    this.data = this.router.getCurrentNavigation()?.extras.state;
+    this.dataService.getCards(this.data.subjectID, this.data.setID).subscribe(res => {
+      this.cardList = res
+    })
+  }
 
   ngOnInit() {
   }
 
   async addCard(){
-    const alert = await this.alertCtrl.create({
-      header: "Add Card",
-      inputs: [
-        {
-          name: "term",
-          placeholder: "Term",
-          type: "text"
-        },
-        {
-          name: "definition",
-          placeholder: "Definition",
-          type: "textarea"
-        },
-      ],
-      buttons: [
-        {
-          text: "Cancel",
-          role: "cancel"
-        },
-        {
-          text: "Add",
-          handler: (res) => {
-            this.list.push({term: res.term, definition: res.definition})
-          }
-        }
-      ]
-    });
+    const modal = await this.modalCtrl.create({
+      component: AddCardsPage,
+      componentProps: {data: this.data}
+    })
 
-    await alert.present()
+    await modal.present()
   }
   
   async openCard(card: any){
     const modal = await this.modalCtrl.create({
       component: EditModalPage,
-      componentProps: {card: card},
+      componentProps: {card: card, data: this.data},
       breakpoints: [0, 0.5, 0.8],
       initialBreakpoint: 0.8
     });
