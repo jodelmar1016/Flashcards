@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="text">
+    <ion-title>Add Cards</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        Cancel
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="background">
+  <div class="container">
+    <form [formGroup]="cardForm" (ngSubmit)="add()" >
+      <p>Term</p>
+      <ion-input formControlName="term" type="text" placeholder="Term"></ion-input>
+      <p>Definition</p>
+      <ion-textarea formControlName="definition" rows="10" placeholder="Definition"></ion-textarea>
+      <ion-button type="submit" [disabled]="!cardForm.valid" color="text" expand="block" fill="solid" shape="round">
+        Add
+      </ion-button>
+    </form>
+  </div>
+</ion-content>
