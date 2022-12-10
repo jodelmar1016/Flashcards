@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { SelectSubjectPage } from '../modals/select-subject/select-subject.page';
 import { DataServiceService } from '../services/data-service.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,7 @@ export class HomePage {
     private alertCtrl: AlertController,
     private modalCtrl: ModalController,
     private dataService: DataServiceService,
+    private navCtrl: NavController
   ) {
     // Get all subject
     this.dataService.getSubject().subscribe(res=>{
@@ -78,8 +80,8 @@ export class HomePage {
     await modal.present()
   }
 
-  gotoCardList(set_id: string){
-    
+  gotoCardList(set_id: string, set_title: string){
+    this.navCtrl.navigateForward('card-list',{state: {setID: set_id, subjectID: this.subjectID, setTitle: set_title}})
   }
 
 

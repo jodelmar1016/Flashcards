@@ -5,13 +5,13 @@
         <ion-back-button></ion-back-button>
       </ion-buttons>
     </ion-buttons>
-    <ion-title>Module 1</ion-title>
+    <ion-title>{{ data.setTitle }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="background">
   <div class="container">
-    <div class="item-container" *ngFor="let item of list" (click)="openCard(item)">
+    <div class="item-container" *ngFor="let item of cardList" (click)="openCard(item)">
       <h4>{{ item.term }}</h4>
       <p>{{ item.definition }}</p>
     </div>

@@ -16,11 +16,11 @@
       <ion-textarea [(ngModel)]="card.definition" rows="7"></ion-textarea>
     </ion-item>
 
-    <ion-button color="text" expand="block">
+    <ion-button (click)="updateCard()" color="text" expand="block">
       <ion-icon slot="start" name="save"></ion-icon>
       Update
     </ion-button>
-    <ion-button color="danger" expand="block">
+    <ion-button (click)="deleteCard()" color="danger" expand="block">
       <ion-icon slot="start" name="trash"></ion-icon>
       Delete
     </ion-button>

@@ -54,6 +54,10 @@ const routes: Routes = [
     path: 'landing',
     loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
   },
+  {
+    path: 'add-cards',
+    loadChildren: () => import('./modals/add-cards/add-cards.module').then( m => m.AddCardsPageModule)
+  },
 
 ];
 

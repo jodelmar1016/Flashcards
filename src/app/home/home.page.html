@@ -18,11 +18,11 @@
   <div class="cards-container">
     <ion-card *ngFor="let set of sets" color="custom-light">
       <ion-card-content>
-        <ion-text (click)="gotoCardList(set.id)" color="custom-dark">
+        <ion-text (click)="gotoCardList(set.id, set.title)" color="custom-dark">
           <h3 style="font-weight: bold;font-size: 18px;">{{ set.title }}</h3>
           <p>
             <ion-icon slot="start" name="tablet-portrait-outline"></ion-icon>
-            {{ "0" }} cards
+            {{ set.no_of_cards }} cards
           </p>
         </ion-text>
         <ion-button size="small" routerLink="/review" color="text" fill="solid" shape="round">
