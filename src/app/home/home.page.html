@@ -1,20 +1,41 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+  <ion-toolbar color="text">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content [fullscreen]="true" color="background">
+  <div class="top" (click)="selectSubject()">
+    <p>{{ selectedSubject }}</p>
+    <ion-icon slot="end" name="chevron-down-outline"></ion-icon>
   </div>
+  
+  <div class="divider"></div>
+    
+  <div class="cards-container">
+    <ion-card *ngFor="let set of sets" color="custom-light">
+      <ion-card-content>
+        <ion-text (click)="gotoCardList(set.id, set.title)" color="custom-dark">
+          <h3 style="font-weight: bold;font-size: 18px;">{{ set.title }}</h3>
+          <p>
+            <ion-icon slot="start" name="tablet-portrait-outline"></ion-icon>
+            {{ set.no_of_cards }} cards
+          </p>
+        </ion-text>
+        <ion-button size="small" routerLink="/review" color="text" fill="solid" shape="round">
+          Review
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div class="btn">
+    <ion-button (click)="createSet()" color="text" fill="solid" shape="round">
+      <ion-icon slot="start" name="add"></ion-icon>
+      Create set
+    </ion-button>
+  </div>
+
 </ion-content>

@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar color="text">
+    <ion-title>Select Subject</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-item *ngFor="let sub of subject" (click)="closeModal(sub.id, sub.title)">
+    <ion-label>{{ sub.title }}</ion-label>
+  </ion-item>
+
+</ion-content>

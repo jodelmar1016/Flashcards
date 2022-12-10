@@ -1,0 +1,23 @@
+.container{
+    margin: 30px 20px;
+    p{
+        font-size: 23px;
+        font-weight: bold;
+        color: var(--ion-color-text);
+        margin-bottom: 0;
+    }
+    ion-input{
+        border: 1px solid var(--ion-color-text);
+        border-radius: 10px;
+        --padding-bottom: 10px;
+        --padding-end: 10px;
+        --padding-start: 10px;
+        --padding-top: 10px;
+    }
+    ion-textarea{
+        border: 1px solid var(--ion-color-text);
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+}

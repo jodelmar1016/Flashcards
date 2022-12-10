@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="text">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Review</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="background">
+  <div class="content">
+    <p>{{ text }}</p>
+  </div>
+  <div class="controls">
+    <ion-button size="small" color="text" fill="solid" shape="round">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+    <ion-button class="btn" (click)="handleClick()" size="small" color="text" fill="solid" shape="round">
+      <p>{{ btnText }}</p>
+    </ion-button>
+    <ion-button size="small" color="text" fill="solid" shape="round">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+</ion-content>
