@@ -14,6 +14,8 @@ export class AddCardsPage implements OnInit {
   @Input() data: any
   cardForm: FormGroup
 
+  cards: any = []
+
   constructor(
     private modalCtrl: ModalController,
     private dataService: DataServiceService,
@@ -36,6 +38,11 @@ export class AddCardsPage implements OnInit {
     this.dataService.addCard({term: this.cardForm.value['term'], definition: this.cardForm.value['definition']}, this.data.subjectID, this.data.setID)
     this.cardForm.reset()
     this.presentToast("1 card added")
+
+    // update number of cards
+    this.dataService.getCards(this.data.subjectID, this.data.setID).subscribe(res => {
+      this.dataService.updateNoOfCards(this.data.subjectID, this.data.setID, res.length)
+    })
   }
 
   async presentToast(message: any) {

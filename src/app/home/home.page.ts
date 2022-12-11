@@ -50,7 +50,7 @@ export class HomePage {
         {
           text: "Add",
           handler: (res) => {
-            // this.data.push({title: res.title, noOfCards: "0"})
+            this.dataService.addSet(res.title, this.subjectID)
           }
         }
       ]

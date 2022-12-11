@@ -1,11 +1,26 @@
 <ion-header>
   <ion-toolbar color="text">
     <ion-buttons slot="start">
-      <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
-      </ion-buttons>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>{{ data.setTitle }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" id="popover">
+        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-popover #popover trigger="popover" triggerAction="click">
+      <ng-template>
+        <ion-content class="ion-text-center">
+          <ion-item (click)="editSet()">
+            <ion-label>Edit Title</ion-label>
+          </ion-item>
+          <ion-item (click)="deleteSet()">
+            <ion-label color="danger">Delete</ion-label>
+          </ion-item>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
   </ion-toolbar>
 </ion-header>
 
