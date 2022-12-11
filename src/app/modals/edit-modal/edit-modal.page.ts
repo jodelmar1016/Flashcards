@@ -36,6 +36,10 @@ export class EditModalPage implements OnInit {
           text: 'Delete',
           handler: () => {
             this.dataService.deleteCard(this.data.subjectID, this.data.setID, this.card.id)
+            // update number of cards
+            this.dataService.getCards(this.data.subjectID, this.data.setID).subscribe(res => {
+              this.dataService.updateNoOfCards(this.data.subjectID, this.data.setID, res.length)
+            })
             this.modalCtrl.dismiss()
           }
         },
