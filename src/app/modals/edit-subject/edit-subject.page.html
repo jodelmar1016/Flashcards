@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Subject</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="title">
+    <ion-item>
+      <ion-label position="stacked">Subject</ion-label>
+      <ion-input [(ngModel)]="title"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="updateSubject()" color="text" expand="block">
+      <ion-icon slot="start" name="save"></ion-icon>
+      Update
+    </ion-button>
+    <ion-button (click)="deleteSubject()" color="danger" expand="block">
+      <ion-icon slot="start" name="trash"></ion-icon>
+      Delete
+    </ion-button>
+  </div>
+</ion-content>

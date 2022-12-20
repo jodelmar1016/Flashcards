@@ -5,6 +5,7 @@ import { DataServiceService } from '../services/data-service.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { AddCardsPage } from '../modals/add-cards/add-cards.page';
+import { EditSetPage } from '../modals/edit-set/edit-set.page';
 
 @Component({
   selector: 'app-card-list',
@@ -55,53 +56,13 @@ export class CardListPage implements OnInit {
   }
 
   async editSet(){
-    const alert = await this.alertCtrl.create({
-      header: "Edit Title",
-      inputs: [
-        {
-          name: "title",
-          placeholder: "Title",
-          type: 'text',
-          value: this.data.setTitle
-        }
-      ],
-      buttons: [
-        {
-          text: "Cancel",
-          role: "cancel"
-        },
-        {
-          text: "Edit",
-          handler: (res) => {
-            this.dataService.updateSet(res.title, this.data.subjectID, this.data.setID)
-          }
-        }
-      ]
+    const modal = await this.modalCtrl.create({
+      component: EditSetPage,
+      componentProps: {data: this.data},
+      initialBreakpoint: 0.5
     });
 
-    await alert.present()
+    await modal.present()
   }
-
-  async deleteSet(){
-    const alert = await this.alertCtrl.create({
-      header: "Delete Set",
-      subHeader: "Are you sure you want to delete this set?",
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        },
-        {
-          text: 'Delete',
-          handler: () => {
-            this.dataService.deleteSet(this.data.subjectID, this.data.setID)
-            this.navCtrl.navigateBack('home')
-          }
-        },
-      ]
-    });
-
-    await alert.present();
-  }
-
+  
 }

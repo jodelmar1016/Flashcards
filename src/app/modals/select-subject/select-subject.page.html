@@ -6,8 +6,31 @@
 
 <ion-content>
   
-  <ion-item *ngFor="let sub of subject" (click)="closeModal(sub.id, sub.title)">
+  <div class="container">
+    <div class="item">
+      <div class="item-label" (click)="closeModal('', 'All')">
+        <ion-label>All</ion-label>
+      </div>
+    </div>
+
+    <div class="item" *ngFor="let sub of subject">
+      <div class="item-label" (click)="closeModal(sub.id, sub.title)">
+        <ion-label>{{ sub.title }}</ion-label>
+      </div>
+      <div class="item-icon" (click)="editSubject(sub.id, sub.title)">
+        <ion-icon slot="start" name="ellipsis-vertical-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <!-- <ion-item *ngFor="let sub of subject" (click)="closeModal(sub.id, sub.title)">
     <ion-label>{{ sub.title }}</ion-label>
-  </ion-item>
+    <ion-icon slot="end" name="add"></ion-icon>
+  </ion-item> -->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="text" (click)="addSubject()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

@@ -1,4 +1,4 @@
-<ion-content color="text">
+<!-- <ion-content color="text">
   <div class="container">
     <div class="top">
       <h1>Welcome Back!</h1>
@@ -8,6 +8,33 @@
         <p style="font-weight: bold;">Login</p>
       </ion-button>
     </div>
+    <div class="bottom">
+      <p>Don't have an account?</p>
+      <ion-button routerLink="/register" fill="clear">
+        Sign Up
+      </ion-button>
+    </div>
+  </div>
+</ion-content> -->
+
+<ion-content>
+  <div class="container">
+    <div class="top">
+      <h1>Welcome Buddy!</h1>
+      <p>Log in to continue</p>
+    </div>
+
+    <div class="center" >
+      <form>
+        <ion-input class="email" type="text" placeholder="Email"></ion-input>
+        <ion-input class="password" type="password" placeholder="Password"></ion-input>
+        <p slot="end" style="text-align: right; color: rgb(109, 109, 158);">Forgot password?</p>
+        <ion-button routerLink="/home" class="login" color="background" expand="block" fill="solid" shape="round">
+          <p style="font-weight: bold; font-size: 18px; color: var(--ion-color-text);">LOG IN</p>
+        </ion-button>
+      </form>
+    </div>
+
     <div class="bottom">
       <p>Don't have an account?</p>
       <ion-button routerLink="/register" fill="clear">

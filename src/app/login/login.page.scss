@@ -1,32 +1,87 @@
+// .container{
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     text-align: center;
+//     padding: 20px 30px;
+// }
+// h1{
+//     font-size: 30px;
+//     font-weight: bold;
+//     margin-bottom: 70px;
+// }
+// ion-input {
+//    text-align: left;
+//    border-bottom: 1px solid var(--ion-color-background);
+//     --padding-bottom: 0px;
+//     --padding-start: 0px;
+//     font-size: 22px;
+// }
+// .email{
+//     margin-bottom: 15px;
+// }
+// .login{
+//     margin-top: 25px;
+// }
+// .bottom p{
+//     margin: 0;
+// }
+// .bottom ion-button{
+//     margin: 0;
+// }
+
 .container{
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: var(--ion-color-text);
+    // text-align: center;
+    // padding: 20px 30px;
+}
+
+.top{
+    padding-top: 10px;
     text-align: center;
-    padding: 20px 30px;
+    color: var(--ion-color-background);
+
+
+    h1{
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    p{
+        font-size: 20px;
+        // font-weight: bold;
+
+    }
 }
-h1{
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 70px;
+
+.center{
+    padding: 60px 30px;
+    background: white;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+
+    ion-input{
+        border-bottom: 1px solid var(--ion-color-text);
+        color: var(--ion-color-text);
+        
+        font-size: 20px;
+    }
+
+    ion-button{
+        border-radius: 25px;
+        box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0px 6px 20px 0 rgba(0, 0, 0, 0.19);
+        height: 50px;
+        margin-top: 20px;
+    }
 }
-ion-input {
-   text-align: left;
-   border-bottom: 1px solid var(--ion-color-background);
-    --padding-bottom: 0px;
-    --padding-start: 0px;
-    font-size: 22px;
-}
-.email{
-    margin-bottom: 15px;
-}
-.login{
-    margin-top: 25px;
-}
-.bottom p{
-    margin: 0;
-}
-.bottom ion-button{
-    margin: 0;
+
+.bottom{
+    padding-top: 110px;
+    background: white;
+    text-align: center;
 }
