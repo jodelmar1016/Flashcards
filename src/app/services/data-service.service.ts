@@ -32,7 +32,20 @@ export class DataServiceService {
     const notesRef = collection(this.firestore, "subject")
     return collectionData(notesRef, {idField: 'id'}) as Observable<Subject[]>
   }
+  addSubject(title: string){
+    const noteRef = collection(this.firestore, `subject`)
+    return addDoc(noteRef, {title: title})
+  }
+  updateSubject(title: string, subject_ID:any){
+    const noteRef = doc(this.firestore, `subject/${subject_ID}`);
+    return updateDoc(noteRef, {title: title});
+  }
+  deleteSubject(subject_ID:any){
+    const noteRef = doc(this.firestore, `subject/${subject_ID}`);
+    return deleteDoc(noteRef);
+  }
 
+  // CRUD Sets
   getSets(subject_ID: string):Observable<Sets[]>{
     const notesRef = collection(this.firestore, `subject/${subject_ID}/sets`)
     return collectionData(notesRef, {idField: 'id'}) as Observable<Sets[]>
