@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
-  },  {
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
@@ -57,6 +58,14 @@ const routes: Routes = [
   {
     path: 'add-cards',
     loadChildren: () => import('./modals/add-cards/add-cards.module').then( m => m.AddCardsPageModule)
+  },
+  {
+    path: 'edit-subject',
+    loadChildren: () => import('./modals/edit-subject/edit-subject.module').then( m => m.EditSubjectPageModule)
+  },
+  {
+    path: 'edit-set',
+    loadChildren: () => import('./modals/edit-set/edit-set.module').then( m => m.EditSetPageModule)
   },
 
 ];
