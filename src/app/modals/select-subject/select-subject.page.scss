@@ -1,0 +1,25 @@
+.container{
+    height: 90%;
+}
+.item{
+    height: 50px;
+    display: flex;
+    border-bottom: 1px solid rgb(167, 167, 167);
+}
+.item-label{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    ion-label{
+        font-weight: bold;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+}
+.item-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    width: 10%;
+}
