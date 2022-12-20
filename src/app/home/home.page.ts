@@ -12,7 +12,7 @@ import { NavController } from '@ionic/angular';
 export class HomePage {
 
   // Subject container
-  subject: any = []
+  // subject: any = []
 
   selectedSubject: string = "All"
   subjectID: string = ""
@@ -27,9 +27,9 @@ export class HomePage {
     private navCtrl: NavController
   ) {
     // Get all subject
-    this.dataService.getSubject().subscribe(res=>{
-      this.subject=res
-    })
+    // this.dataService.getSubject().subscribe(res=>{
+    //   this.subject=res
+    // })
   }
 
   async createSet(){
@@ -62,8 +62,7 @@ export class HomePage {
   async selectSubject(){
     // Create Modal
     const modal = await this.modalCtrl.create({
-      component: SelectSubjectPage,
-      componentProps: {subject: this.subject}
+      component: SelectSubjectPage
     });
 
     // On modal dismiss, get title and Id
