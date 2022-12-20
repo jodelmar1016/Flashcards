@@ -51,12 +51,12 @@ export class EditModalPage implements OnInit {
 
   async updateCard(){
     await this.dataService.updateCard(this.card, this.data.subjectID, this.data.setID, this.card.id)
+    this.modalCtrl.dismiss();
     const toast = await this.toastCtrl.create({
       message: 'Card Updated!',
       duration: 2000
     });
     toast.present();
-    this.modalCtrl.dismiss();
   }
 
 }
