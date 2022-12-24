@@ -17,22 +17,22 @@ export class SelectSubjectPage implements OnInit {
     private alertCtrl: AlertController,
     private dataService: DataServiceService
   ) {
-    this.dataService.getSubject().subscribe(res=>{
-      this.subject=res
+    this.dataService.getSubject().subscribe(res => {
+      this.subject = res
     })
   }
 
   ngOnInit() {
   }
 
-  closeModal(sub_id:string, sub_title: string){
+  closeModal(sub_id: string, sub_title: string) {
     this.modalCtrl.dismiss({
       subject_Title: sub_title,
       subject_ID: sub_id
     })
   }
 
-  async addSubject(){
+  async addSubject() {
     const alert = await this.alertCtrl.create({
       header: "Add Subject",
       inputs: [
@@ -50,7 +50,7 @@ export class SelectSubjectPage implements OnInit {
         {
           text: 'Add',
           handler: (res) => {
-            this.dataService.addSubject(res.subject)
+            this.dataService.addSubject(res.subject, "2")
           }
         }
       ]
@@ -58,10 +58,10 @@ export class SelectSubjectPage implements OnInit {
     await alert.present()
   }
 
-  async editSubject(id: string, title: string){
+  async editSubject(id: string, title: string) {
     const modal = await this.modalCtrl.create({
       component: EditSubjectPage,
-      componentProps: {id: id, title: title},
+      componentProps: { id: id, title: title },
       breakpoints: [0, 0.5],
       initialBreakpoint: 0.5
     });

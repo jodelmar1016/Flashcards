@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, setDoc, docData, doc, addDoc, deleteDoc, updateDoc } from '@angular/fire/firestore';
+import { Firestore, query, collection, collectionData, setDoc, doc, addDoc, deleteDoc, updateDoc, where } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 export interface Subject{
@@ -30,11 +30,15 @@ export class DataServiceService {
 
   getSubject():Observable<Subject[]>{
     const notesRef = collection(this.firestore, "subject")
+    // const notesRef = query(
+    //   collection(this.firestore, "subject"),
+    //   where("user_id", "==", user_ID)
+    // )
     return collectionData(notesRef, {idField: 'id'}) as Observable<Subject[]>
   }
-  addSubject(title: string){
+  addSubject(title: string, user_id: string){
     const noteRef = collection(this.firestore, `subject`)
-    return addDoc(noteRef, {title: title})
+    return addDoc(noteRef, {title: title, user_id: user_id})
   }
   updateSubject(title: string, subject_ID:any){
     const noteRef = doc(this.firestore, `subject/${subject_ID}`);
@@ -85,6 +89,14 @@ export class DataServiceService {
   updateNoOfCards(subject_ID:any, set_ID:any, noOfCards: number){
     const noteRef = doc(this.firestore, `subject/${subject_ID}/sets/${set_ID}`);
     return updateDoc(noteRef, {no_of_cards: noOfCards});
+  }
+
+
+
+  // CRUD User
+  addUser(fullName: string, userID: string){
+    const noteRef = collection(this.firestore, `users`)
+    return addDoc(noteRef, {full_name: fullName, user_id: userID})
   }
 
 }
