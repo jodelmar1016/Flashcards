@@ -3,6 +3,7 @@ import { AlertController, ModalController } from '@ionic/angular';
 import { SelectSubjectPage } from '../modals/select-subject/select-subject.page';
 import { DataServiceService } from '../services/data-service.service';
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -24,12 +25,13 @@ export class HomePage {
     private alertCtrl: AlertController,
     private modalCtrl: ModalController,
     private dataService: DataServiceService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private router: Router
   ) {
-    // Get all subject
-    // this.dataService.getSubject().subscribe(res=>{
-    //   this.subject=res
-    // })
+    if(sessionStorage.getItem('user_id')?.length == 0){
+      console.log("true")
+      this.router.navigate(['/login'])
+    }
   }
 
   async createSet(){
