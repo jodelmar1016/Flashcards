@@ -11,13 +11,14 @@ import { EditSubjectPage } from '../edit-subject/edit-subject.page';
 })
 export class SelectSubjectPage implements OnInit {
   subject: any = []
+  userID: any = sessionStorage.getItem('user_id')
 
   constructor(
     private modalCtrl: ModalController,
     private alertCtrl: AlertController,
     private dataService: DataServiceService
   ) {
-    this.dataService.getSubject().subscribe(res => {
+    this.dataService.getSubject(this.userID).subscribe(res => {
       this.subject = res
     })
   }
@@ -50,7 +51,7 @@ export class SelectSubjectPage implements OnInit {
         {
           text: 'Add',
           handler: (res) => {
-            this.dataService.addSubject(res.subject, "2")
+            this.dataService.addSubject(res.subject, this.userID)
           }
         }
       ]

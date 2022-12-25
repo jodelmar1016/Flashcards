@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataServiceService } from '../services/data-service.service';
 
 @Component({
   selector: 'app-review',
@@ -6,25 +8,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./review.page.scss'],
 })
 export class ReviewPage implements OnInit {
-  isFront = false
-  text: string = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam hic magnam nisi repudiandae molestiae at illo, quibusdam doloremque? Minus cupiditate voluptas fugiat quis. Facilis ullam veritatis fugit consequatur adipisci non."
-  btnText: string = "Show Answer"
 
-  constructor() { }
+  data: any
+  cardList: any = []
+
+  term: string = ""
+  definition: string = ""
+  toggle = false
+
+  constructor(
+    private router: Router,
+    private dataService: DataServiceService
+  ) {
+    this.data = this.router.getCurrentNavigation()?.extras.state;
+    this.dataService.getCards(this.data.subjectID, this.data.sets.id).subscribe(res => {
+      this.cardList = res
+      this.next()
+    })
+  }
 
   ngOnInit() {
   }
 
-  handleClick(){
-    if(this.isFront){
-      this.text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam hic magnam nisi repudiandae molestiae at illo, quibusdam doloremque? Minus cupiditate voluptas fugiat quis. Facilis ullam veritatis fugit consequatur adipisci non."
-      this.btnText = "Show Answer"
-      this.isFront = false
-    }else{
-      this.text = "Answer"
-      this.btnText = "Hide Answer"
-      this.isFront = true
-    }
+  num: number = 0
+  next(){
+    this.toggle = false
+    this.num = Math.floor(Math.random() * this.cardList.length)
+    console.log(this.num)
+    this.term = this.cardList[this.num].term
+    this.definition = this.cardList[this.num].definition
   }
 
 }

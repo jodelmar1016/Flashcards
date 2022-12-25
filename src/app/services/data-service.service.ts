@@ -28,12 +28,12 @@ export class DataServiceService {
     private firestore : Firestore,
   ) { }
 
-  getSubject():Observable<Subject[]>{
-    const notesRef = collection(this.firestore, "subject")
-    // const notesRef = query(
-    //   collection(this.firestore, "subject"),
-    //   where("user_id", "==", user_ID)
-    // )
+  getSubject(uid: string):Observable<Subject[]>{
+    // const notesRef = collection(this.firestore, "subject")
+    const notesRef = query(
+      collection(this.firestore, "subject"),
+      where("user_id", "==", uid)
+    )
     return collectionData(notesRef, {idField: 'id'}) as Observable<Subject[]>
   }
   addSubject(title: string, user_id: string){

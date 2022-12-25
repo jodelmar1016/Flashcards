@@ -34,7 +34,7 @@
         <!-- Password -->
         <ion-item color="text">
           <ion-input formControlName="password" [type]="showPassword ? 'text' : 'password'" placeholder="Password" required></ion-input>
-          <ion-icon style="color: rgb(148, 148, 148);" size="small" [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" (click)="showPassword = !showPassword"></ion-icon>
+          <ion-icon style="color: rgb(148, 148, 148);" size="small" [name]="showPassword ? 'eye-outline' : 'eye-off-outline'" (click)="showPassword = !showPassword"></ion-icon>
         </ion-item>
         <div class="error-container" *ngFor="let validation of validation_messages.password">
           <ng-container *ngIf="signUpForm.get('password')?.hasError(validation.type) && (signUpForm.get('password')?.dirty || signUpForm.get('password')?.touched)">
@@ -48,7 +48,7 @@
         <!-- Confirm Password -->
         <ion-item color="text">
           <ion-input formControlName="confirm_password" [type]="showConfirmPassword ? 'text' : 'password'" placeholder="Confirm Password" required></ion-input>
-          <ion-icon style="color: rgb(148, 148, 148);" size="small" [name]="showConfirmPassword ? 'eye-off-outline' : 'eye-outline'" (click)="showConfirmPassword = !showConfirmPassword"></ion-icon>
+          <ion-icon style="color: rgb(148, 148, 148);" size="small" [name]="showConfirmPassword ? 'eye-outline' : 'eye-off-outline'" (click)="showConfirmPassword = !showConfirmPassword"></ion-icon>
         </ion-item>
         <div class="error-container" *ngFor="let validation of validation_messages.confirm_password">
           <ng-container *ngIf="signUpForm.get('confirm_password')?.hasError(validation.type) && (signUpForm.get('confirm_password')?.dirty || signUpForm.get('confirm_password')?.touched)">
