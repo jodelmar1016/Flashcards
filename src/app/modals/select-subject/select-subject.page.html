@@ -7,11 +7,11 @@
 <ion-content>
   
   <div class="container">
-    <div class="item">
+    <!-- <div class="item">
       <div class="item-label" (click)="closeModal('', 'All')">
         <ion-label>All</ion-label>
       </div>
-    </div>
+    </div> -->
 
     <div class="item" *ngFor="let sub of subject">
       <div class="item-label" (click)="closeModal(sub.id, sub.title)">
