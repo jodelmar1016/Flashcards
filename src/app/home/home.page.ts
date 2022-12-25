@@ -11,12 +11,11 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  userID: any = sessionStorage.getItem('user_id')
   // Subject container
-  // subject: any = []
 
-  selectedSubject: string = "All"
-  subjectID: string = ""
+  selectedSubject: string = "SELECT"
+  subjectID: any = ""
 
   // Sets container
   sets: any = []
@@ -28,11 +27,22 @@ export class HomePage {
     private navCtrl: NavController,
     private router: Router
   ) {
-    if(sessionStorage.getItem('user_id')?.length == 0){
-      console.log("true")
-      this.router.navigate(['/login'])
-    }
   }
+
+  ngOnInit() {
+    // this.dataService.getSubject(this.userID).subscribe(res => {
+    //   res.forEach(val => {
+    //     this.subjectID=val.id
+    //     this.getSet(this.subjectID)
+    //   })
+    // })
+  }
+
+  // getSet(id: string){
+  //   this.dataService.getSets(id).subscribe(result => {
+  //     this.sets.push(...result)
+  //   })
+  // }
 
   async createSet(){
     const alert = await this.alertCtrl.create({
@@ -75,7 +85,12 @@ export class HomePage {
       this.dataService.getSets(this.subjectID).subscribe(res => {
         this.sets = res
       })
-      // this.dataService.getCards()
+      // if(this.subjectID == ""){
+      //   console.log("TEST")
+      // }
+      // else{
+        
+      // }
     });
 
     await modal.present()
@@ -83,6 +98,10 @@ export class HomePage {
 
   gotoCardList(set_id: string, set_title: string){
     this.navCtrl.navigateForward('card-list',{state: {setID: set_id, subjectID: this.subjectID, setTitle: set_title}})
+  }
+
+  gotoReview(sets: any){
+    this.navCtrl.navigateForward('review',{state: {sets: sets, subjectID: this.subjectID}})
   }
 
 
