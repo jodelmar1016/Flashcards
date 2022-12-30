@@ -8,11 +8,59 @@
 </ion-header>
 
 <ion-content color="background">
-  <div class="top">
-    <ion-img src="../../assets/user.png"></ion-img>
-    <p>Albert Einstein</p>
+
+  <div class="container">
+    <!-- <div class="top">
+      <ion-img src="../../assets/user.png"></ion-img>
+      <p>Albert Einstein</p>
+    </div> -->
+
+    <ion-segment color="text" [(ngModel)]="segment" (ionChange)="onSegmentChange($event)">
+      <ion-segment-button value="account">
+        <ion-label>Account</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="quizzes">
+        <ion-label>Progress</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div class="account" *ngIf="segment == 'account'">
+      <div class="item">
+        <p>Name: Jodelmar Beltran</p>
+        <ion-icon name="pencil-outline"></ion-icon>
+      </div>
+      <div class="item">
+        <p>Email: jodel@gmail.com</p>
+      </div>
+      <div class="item pass">
+        <p>Password: ********</p>
+        <p style="color: #4A92FF; font-size: 12px;">Change Password</p>
+      </div>
+    </div>
+
+    <div class="quizzes" *ngIf="segment == 'quizzes'">
+      <ion-grid style="text-align: center;">
+        <ion-row style="background-color: var(--ion-color-text); color: var(--ion-color-light);">
+          <ion-col>SUBJECT</ion-col>
+          <ion-col>SETS</ion-col>
+          <ion-col>SCORE</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Mobile Computing</ion-col>
+          <ion-col>Module 1</ion-col>
+          <ion-col>10/15</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Elective</ion-col>
+          <ion-col>Module 1</ion-col>
+          <ion-col>20/20</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    
   </div>
-  <div class="account-info">
+
+  <!-- <div class="account-info">
     <p class="title">Account</p>
     <div class="divider"></div>
     <div class="item">
@@ -22,8 +70,9 @@
       <p>Password</p>
       <p style="color: #4A92FF; font-size: 11px;">Change Password</p>
     </div>
-  </div>
-  <div class="progress">
+  </div> -->
+
+  <!-- <div class="progress">
     <p class="title">Progress</p>
     <div class="divider"></div>
     <div class="container">
@@ -48,6 +97,6 @@
         <div class="divider"></div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 </ion-content>
