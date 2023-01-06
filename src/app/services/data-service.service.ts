@@ -94,9 +94,9 @@ export class DataServiceService {
 
 
   // CRUD User
-  addUser(fullName: string, userID: string){
-    const noteRef = collection(this.firestore, `users`)
-    return addDoc(noteRef, {full_name: fullName, user_id: userID})
-  }
+  // addUser(fullName: string, userID: string){
+  //   const noteRef = collection(this.firestore, `users`)
+  //   return addDoc(noteRef, {full_name: fullName, user_id: userID})
+  // }
 
 }
