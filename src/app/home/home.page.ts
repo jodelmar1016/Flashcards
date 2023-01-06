@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
   userID: any = sessionStorage.getItem('user_id')
-  // Subject container
 
+  // Subject container
   selectedSubject: string = "SELECT"
   subjectID: any = ""
 
@@ -25,24 +25,13 @@ export class HomePage {
     private modalCtrl: ModalController,
     private dataService: DataServiceService,
     private navCtrl: NavController,
-    private router: Router
+    private router: Router,
   ) {
+    console.log(sessionStorage.length)
+    // this.authService.getUserInfo()
   }
 
-  ngOnInit() {
-    // this.dataService.getSubject(this.userID).subscribe(res => {
-    //   res.forEach(val => {
-    //     this.subjectID=val.id
-    //     this.getSet(this.subjectID)
-    //   })
-    // })
-  }
-
-  // getSet(id: string){
-  //   this.dataService.getSets(id).subscribe(result => {
-  //     this.sets.push(...result)
-  //   })
-  // }
+  ngOnInit() {}
 
   async createSet(){
     const alert = await this.alertCtrl.create({

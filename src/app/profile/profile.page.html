@@ -15,7 +15,7 @@
       <p>Albert Einstein</p>
     </div> -->
 
-    <ion-segment color="text" [(ngModel)]="segment" (ionChange)="onSegmentChange($event)">
+    <ion-segment color="text" [(ngModel)]="segment">
       <ion-segment-button value="account">
         <ion-label>Account</ion-label>
       </ion-segment-button>
@@ -26,14 +26,14 @@
 
     <div class="account" *ngIf="segment == 'account'">
       <div class="item">
-        <p>Name: Jodelmar Beltran</p>
-        <ion-icon name="pencil-outline"></ion-icon>
+        <p>Name: {{ userDisplayName }}</p>
+        <ion-icon (click)="updateName()" name="pencil-outline"></ion-icon>
       </div>
       <div class="item">
-        <p>Email: jodel@gmail.com</p>
+        <p>Email: {{ userEmail }}</p>
       </div>
       <div class="item pass">
-        <p>Password: ********</p>
+        <p>Password</p>
         <p style="color: #4A92FF; font-size: 12px;">Change Password</p>
       </div>
     </div>
