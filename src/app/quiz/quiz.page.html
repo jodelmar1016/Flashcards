@@ -8,18 +8,28 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" color="background">
-  <!-- <div class="ion-page" id="quiz">
-    <ion-header>
-      <ion-toolbar color="custom-primary">
-        <ion-menu-toggle slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-menu-toggle>
-        <ion-title>Quiz</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content color="custom-dark">
-
-    </ion-content>
-  </div> -->
+  <ion-item color="background">
+    <ion-label>Quiz Type</ion-label>
+    <ion-select placeholder="Type" (ionChange)="selectType($event)">
+      <ion-select-option value="multipleChoice">Multiple Choice</ion-select-option>
+      <ion-select-option value="Identification">Identification</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item color="background">
+    <ion-label>Subject</ion-label>
+    <ion-select placeholder="Subject" (ionChange)="selectSubject($event)">
+      <ion-select-option value="MC">Mobile Computing</ion-select-option>
+      <ion-select-option value="CSE">CSE</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item color="background">
+    <ion-label>Sets</ion-label>
+    <ion-select placeholder="Sets" (ionChange)="selectSets($event)">
+      <ion-select-option value="Module 1">Module 1</ion-select-option>
+      <ion-select-option value="Module 2">Module 2</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button color="text" expand="block" fill="solid" shape="round">
+    Click me
+  </ion-button>
 </ion-content>
