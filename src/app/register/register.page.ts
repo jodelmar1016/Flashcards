@@ -61,9 +61,13 @@ export class RegisterPage implements OnInit {
     else{
       this.authService.signUpWithEmail(this.signUpForm.value['email'], this.signUpForm.value['password'])
       .then(user => {
+        user.user?.updateProfile({
+          displayName: this.signUpForm.value['full_name']
+        })
+
         this.userID = user.user?.uid
         sessionStorage.setItem('user_id', this.userID)
-        this.dataService.addUser(this.signUpForm.value['full_name'],this.userID)
+        // this.dataService.addUser(this.signUpForm.value['full_name'],this.userID)
         this.signUpForm.reset()
         this.router.navigate(["/home"]);
       })
