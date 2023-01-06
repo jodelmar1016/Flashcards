@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
 })
 export class QuizPage implements OnInit {
 
+  type: string = ""
+  subjectID: string = ""
+  setID: string = ""
+
   constructor(
     private route: Router
   ) { }
@@ -18,5 +22,17 @@ export class QuizPage implements OnInit {
   // goTo(page:any){
   //   this.route.navigate([page])
   // }
+
+  selectType(event: any){
+    this.type = event.target.value
+  }
+
+  selectSubject(event: any){
+    console.log(event)
+  }
+
+  selectSets(event: any){
+    console.log(event)
+  }
 
 }
