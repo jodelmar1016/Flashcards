@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
       this.userID = user.user?.uid
       sessionStorage.setItem('user_id', this.userID)
       this.signInForm.reset()
-      this.router.navigate(["/home"]);
+      this.router.navigateByUrl("/home")
     })
     .catch(error => {
       if(error.code == "auth/user-not-found" || error.code == "auth/invalid-email"){
