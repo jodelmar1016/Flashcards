@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="text">
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon slot="end" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Quiz</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="text">
+  <div class="container">
+    <div class="top">
+      <h1>{{ timeLeft }}</h1>
+      <ion-card>
+        <ion-card-content>
+          {{ questions[index].text }}
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="mid">
+      <ion-text color="success">
+        <h1>{{ message }}</h1>
+      </ion-text>
+    </div>
+
+    <div class="bottom">
+      <ion-radio-group [(ngModel)]="selectedAnswer">
+        <ng-container *ngFor="let item of questions[index].answers">
+          <ion-item>
+            <ion-label>{{ item }}</ion-label>
+            <ion-radio slot="end" value="{{item}}"></ion-radio>
+          </ion-item>
+        </ng-container>
+      </ion-radio-group>
+      <ion-button color="background" [disabled]="selectedAnswer == ''? true : false" (click)="isCurrent? submit() : next()" expand="block" fill="solid">
+        {{ isCurrent? "Submit": "Next" }}
+      </ion-button>
+    </div>
+  </div>
+  
+  <!-- <ion-button (click)="startTimer()">Start Timer</ion-button>
+  <ion-button (click)="stopTimer()">Stop Timer</ion-button>
+  <div>Elapsed Time: {{ timeLeft }} seconds</div> -->
+</ion-content>
