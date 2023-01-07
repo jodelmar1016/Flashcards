@@ -49,7 +49,7 @@ export class CardListPage implements OnInit {
       component: EditModalPage,
       componentProps: {card: card, data: this.data},
       breakpoints: [0, 0.5, 0.8],
-      initialBreakpoint: 0.8
+      initialBreakpoint: 0.5
     });
 
     await modal.present()
