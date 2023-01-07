@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: QuizPage
+  },  {
+    path: 'multiple-choice',
+    loadChildren: () => import('./multiple-choice/multiple-choice.module').then( m => m.MultipleChoicePageModule)
   }
+
 ];
 
 @NgModule({
