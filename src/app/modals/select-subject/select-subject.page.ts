@@ -26,6 +26,10 @@ export class SelectSubjectPage implements OnInit {
   ngOnInit() {
   }
 
+  cancel(){
+    this.modalCtrl.dismiss()
+  }
+
   closeModal(sub_id: string, sub_title: string) {
     this.modalCtrl.dismiss({
       subject_Title: sub_title,
