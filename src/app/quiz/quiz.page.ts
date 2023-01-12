@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { DataServiceService } from '../services/data-service.service';
 
 @Component({
@@ -20,6 +21,7 @@ export class QuizPage implements OnInit {
 
   constructor(
     private router: Router,
+    private navCtrl: NavController,
     private dataService: DataServiceService,
   ) {
     this.dataService.getSubject(this.userID).subscribe(res => {
@@ -50,16 +52,18 @@ export class QuizPage implements OnInit {
 
   questions: any = []
   start(){
+    this.questions = []
     this.shuffle()
     for (let i = 0; i < this.cards.length; i++) {
       // create questions
       this.create(i)
     }
 
-    for (let i = 0; i < this.questions.length; i++) {
-      console.log(this.questions[i])
-    }
+    // for (let i = 0; i < this.questions.length; i++) {
+    //   console.log(this.questions[i])
+    // }
     // this.router.navigateByUrl('/quiz/multiple-choice')
+    this.navCtrl.navigateForward('/quiz/multiple-choice', {state: this.questions} )
   }
 
   shuffle(){

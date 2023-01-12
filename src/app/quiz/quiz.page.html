@@ -32,7 +32,7 @@
         </ng-container>
       </ion-select>
     </ion-item>
-    <ion-button (click)="start()" color="text" expand="block" fill="solid">
+    <ion-button class="btn" [disabled]="setID == '' || type == ''? true:false" (click)="start()" color="text" expand="block" fill="solid">
       Start
     </ion-button>
   </div>
