@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-multiple-choice',
@@ -17,64 +17,68 @@ export class MultipleChoicePage implements OnInit {
   selectedAnswer: any = ""
   isFinish: boolean = false
   message: string = ""
-
-  questions = [
-    {
-      text: 'What is the largest planet in our solar system?',
-      answers: ['Earth', 'Jupiter', 'Saturn', 'Venus'],
-      correct: 'Jupiter',
-    },
-    {
-      text: 'What is the study of living organisms and their interactions with each other and their environment called?',
-      answers: ['Biology', 'Astronomy', 'Geology', 'Chemistry'],
-      correct: 'Biology',
-    },
-    {
-      text: 'What is the process by which plants use sunlight to convert water and carbon dioxide into oxygen and glucose called?',
-      answers: ['Respiration', 'Photosynthesis', 'Fermentation', 'Digestion'],
-      correct: 'Photosynthesis',
-    },
-    {
-      text: 'What is the smallest unit of matter that retains the chemical properties of an element?',
-      answers: ['Atom', 'Molecule', 'Compound', 'Ion'],
-      correct: 'Atom',
-    },
-    {
-      text: 'What is the process by which a solid substance is changed directly into a gas called?',
-      answers: ['Melting', 'Boiling', 'Condensation', 'Sublimation'],
-      correct: 'Sublimation',
-    },
-    {
-      text: 'What is the study of the universe beyond Earth\'s atmosphere called?',
-      answers: ['Astronomy', 'Cosmology', 'Astrophysics', 'All of the above'],
-      correct: 'Astronomy',
-    },
-    {
-      text: 'What is the process by which matter and energy are exchanged between organisms and their environment called?',
-      answers: ['Respiration', 'Photosynthesis', 'Fermentation', 'Metabolism'],
-      correct: 'Metabolism',
-    },
-    {
-      text: 'What is the study of the Earth and its history called?',
-      answers: ['Geology', 'Paleontology', 'Oceanography', 'All of the above'],
-      correct: 'Geology',
-    },
-    {
-      text: 'What is the process by which a liquid is changed directly into a gas called?',
-      answers: ['Melting', 'Boiling', 'Condensation', 'Evaporation'],
-      correct: 'Evaporation',
-    },
-    {
-      text: 'What is the study of the structure and behavior of matter at the atomic and molecular scale called?',
-      answers: ['Quantum mechanics', 'Genetics', 'Biochemistry', 'Microbiology'],
-      correct: 'Quantum mechanics',
-    },
-  ]
+  questions: any
+  // questions = [
+  //   {
+  //     text: 'What is the largest planet in our solar system?',
+  //     answers: ['Earth', 'Jupiter', 'Saturn', 'Venus'],
+  //     correct: 'Jupiter',
+  //   },
+  //   {
+  //     text: 'What is the study of living organisms and their interactions with each other and their environment called?',
+  //     answers: ['Biology', 'Astronomy', 'Geology', 'Chemistry'],
+  //     correct: 'Biology',
+  //   },
+  //   {
+  //     text: 'What is the process by which plants use sunlight to convert water and carbon dioxide into oxygen and glucose called?',
+  //     answers: ['Respiration', 'Photosynthesis', 'Fermentation', 'Digestion'],
+  //     correct: 'Photosynthesis',
+  //   },
+  //   {
+  //     text: 'What is the smallest unit of matter that retains the chemical properties of an element?',
+  //     answers: ['Atom', 'Molecule', 'Compound', 'Ion'],
+  //     correct: 'Atom',
+  //   },
+  //   {
+  //     text: 'What is the process by which a solid substance is changed directly into a gas called?',
+  //     answers: ['Melting', 'Boiling', 'Condensation', 'Sublimation'],
+  //     correct: 'Sublimation',
+  //   },
+  //   {
+  //     text: 'What is the study of the universe beyond Earth\'s atmosphere called?',
+  //     answers: ['Astronomy', 'Cosmology', 'Astrophysics', 'All of the above'],
+  //     correct: 'Astronomy',
+  //   },
+  //   {
+  //     text: 'What is the process by which matter and energy are exchanged between organisms and their environment called?',
+  //     answers: ['Respiration', 'Photosynthesis', 'Fermentation', 'Metabolism'],
+  //     correct: 'Metabolism',
+  //   },
+  //   {
+  //     text: 'What is the study of the Earth and its history called?',
+  //     answers: ['Geology', 'Paleontology', 'Oceanography', 'All of the above'],
+  //     correct: 'Geology',
+  //   },
+  //   {
+  //     text: 'What is the process by which a liquid is changed directly into a gas called?',
+  //     answers: ['Melting', 'Boiling', 'Condensation', 'Evaporation'],
+  //     correct: 'Evaporation',
+  //   },
+  //   {
+  //     text: 'What is the study of the structure and behavior of matter at the atomic and molecular scale called?',
+  //     answers: ['Quantum mechanics', 'Genetics', 'Biochemistry', 'Microbiology'],
+  //     correct: 'Quantum mechanics',
+  //   },
+  // ]
 
   constructor(
     private alertCtrl: AlertController,
     private router: Router
   ) {
+    this.questions =  this.router.getCurrentNavigation()?.extras.state;
+    for (let i = 0; i < this.questions.length; i++) {
+      console.log(this.questions[i])
+    }
     this.startTimer()
   }
 

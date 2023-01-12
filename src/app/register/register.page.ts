@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FirebaseAuthService } from '../services/firebase-auth.service';
 import { DataServiceService } from '../services/data-service.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -34,7 +35,8 @@ export class RegisterPage implements OnInit {
   constructor(
     private router: Router,
     private authService: FirebaseAuthService,
-    private dataService: DataServiceService
+    private dataService: DataServiceService,
+    private alertCtrl: AlertController
   ) {
     this.signUpForm = new FormGroup({
       full_name: new FormControl('', Validators.required),
@@ -72,6 +74,19 @@ export class RegisterPage implements OnInit {
         this.router.navigate(["/home"]);
       })
     }
+  }
+
+  async underMaintenance(){
+    const alert = await this.alertCtrl.create({
+      header: "Under Maintenance",
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'cancel'
+        }
+      ]
+    });
+    alert.present()
   }
 
 }

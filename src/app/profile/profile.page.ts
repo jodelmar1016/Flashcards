@@ -99,4 +99,17 @@ export class ProfilePage implements OnInit {
     await alert.present()
   }
 
+  async underMaintenance(){
+    const alert = await this.alertCtrl.create({
+      header: "Under Maintenance",
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'cancel'
+        }
+      ]
+    });
+    alert.present()
+  }
+
 }
