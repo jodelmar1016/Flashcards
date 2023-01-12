@@ -15,16 +15,23 @@
       <p>Albert Einstein</p>
     </div> -->
 
-    <ion-segment color="text" [(ngModel)]="segment">
+    <!-- <ion-segment color="text" [(ngModel)]="segment">
       <ion-segment-button value="account">
         <ion-label>Account</ion-label>
       </ion-segment-button>
       <ion-segment-button value="quizzes">
         <ion-label>Progress</ion-label>
       </ion-segment-button>
-    </ion-segment>
+    </ion-segment> -->
 
-    <div class="account" *ngIf="segment == 'account'">
+    <div class="avatar">
+      <ion-avatar>
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+    </div>
+
+    <!-- *ngIf="segment == 'account'" -->
+    <div class="account">
       <div class="item">
         <p>Name: {{ userDisplayName }}</p>
         <ion-icon (click)="updateName()" name="pencil-outline"></ion-icon>
@@ -34,7 +41,7 @@
       </div>
       <div class="item pass">
         <p>Password</p>
-        <p style="color: #4A92FF; font-size: 12px;">Change Password</p>
+        <p style="color: #4A92FF; font-size: 12px;" (click)="underMaintenance()">Change Password</p>
       </div>
     </div>
 
