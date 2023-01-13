@@ -37,7 +37,8 @@ export class ProfilePage implements OnInit {
         {
           name: 'name',
           placeholder: 'Full Name',
-          type: 'text'
+          type: 'text',
+          value: this.userDisplayName
         }
       ],
       buttons: [

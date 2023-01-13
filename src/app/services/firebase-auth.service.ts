@@ -32,8 +32,11 @@ export class FirebaseAuthService {
   }
 
   async updateDisplayName(name: string){
-    console.log(this.angularFireAuth.currentUser)
     return (await this.angularFireAuth.currentUser)?.updateProfile({displayName: name})
+  }
+
+  resetPassword(email: string){
+    return this.angularFireAuth.sendPasswordResetEmail(email)
   }
 
   signOut(){

@@ -66,7 +66,15 @@ const routes: Routes = [
   {
     path: 'edit-set',
     loadChildren: () => import('./modals/edit-set/edit-set.module').then( m => m.EditSetPageModule)
+  },  {
+    path: 'reset-password',
+    loadChildren: () => import('./reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
+  {
+    path: 'change-password',
+    loadChildren: () => import('./change-password/change-password.module').then( m => m.ChangePasswordPageModule)
+  },
+
 
 ];
 
