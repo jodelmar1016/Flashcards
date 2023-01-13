@@ -10,100 +10,28 @@
 <ion-content color="background">
 
   <div class="container">
-    <!-- <div class="top">
-      <ion-img src="../../assets/user.png"></ion-img>
-      <p>Albert Einstein</p>
-    </div> -->
-
-    <!-- <ion-segment color="text" [(ngModel)]="segment">
-      <ion-segment-button value="account">
-        <ion-label>Account</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="quizzes">
-        <ion-label>Progress</ion-label>
-      </ion-segment-button>
-    </ion-segment> -->
 
     <div class="avatar">
-      <ion-avatar>
+      <ion-avatar size="large">
         <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
       </ion-avatar>
     </div>
 
-    <!-- *ngIf="segment == 'account'" -->
-    <div class="account">
-      <div class="item">
-        <p>Name: {{ userDisplayName }}</p>
-        <ion-icon (click)="updateName()" name="pencil-outline"></ion-icon>
-      </div>
-      <div class="item">
-        <p>Email: {{ userEmail }}</p>
-      </div>
-      <div class="item pass">
-        <p>Password</p>
-        <p style="color: #4A92FF; font-size: 12px;" (click)="underMaintenance()">Change Password</p>
-      </div>
-    </div>
-
-    <div class="quizzes" *ngIf="segment == 'quizzes'">
-      <ion-grid style="text-align: center;">
-        <ion-row style="background-color: var(--ion-color-text); color: var(--ion-color-light);">
-          <ion-col>SUBJECT</ion-col>
-          <ion-col>SETS</ion-col>
-          <ion-col>SCORE</ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>Mobile Computing</ion-col>
-          <ion-col>Module 1</ion-col>
-          <ion-col>10/15</ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>Elective</ion-col>
-          <ion-col>Module 1</ion-col>
-          <ion-col>20/20</ion-col>
-        </ion-row>
-      </ion-grid>
+    <div class="items ion-margin-horizontal">
+      <ion-item color="background">
+        <ion-label>Name: {{ userDisplayName }}</ion-label>
+        <ion-icon slot="end" (click)="updateName()" name="pencil-outline"></ion-icon>
+      </ion-item>
+      <ion-item color="background">
+        <ion-label>Email: {{ userEmail }}</ion-label>
+      </ion-item>
+      <ion-item color="background">
+        <ion-label>Password</ion-label>
+        <a slot="end" style="font-size: 12px;" href="change-password">Change Password</a>
+      </ion-item>
     </div>
     
   </div>
 
-  <!-- <div class="account-info">
-    <p class="title">Account</p>
-    <div class="divider"></div>
-    <div class="item">
-      <p>Username</p>
-    </div>
-    <div class="item pass">
-      <p>Password</p>
-      <p style="color: #4A92FF; font-size: 11px;">Change Password</p>
-    </div>
-  </div> -->
-
-  <!-- <div class="progress">
-    <p class="title">Progress</p>
-    <div class="divider"></div>
-    <div class="container">
-      <div class="item-container">
-        <p class="subject">Subject 1</p>
-        <p class="result" class="result">21/50 cards memorize</p>
-        <div class="divider"></div>
-      </div>
-      <div class="item-container">
-        <p class="subject">Subject 2</p>
-        <p class="result">17/30 cards memorize</p>
-        <div class="divider"></div>
-      </div>
-      <div class="item-container">
-        <p class="subject">Subject 3</p>
-        <p class="result">13/15 cards memorize</p>
-        <div class="divider"></div>
-      </div>
-      <div class="item-container">
-        <p class="subject">Subject 4</p>
-        <p class="result">18/25 cards memorize</p>
-        <div class="divider"></div>
-      </div>
-    </div>
-  </div> -->
 
 </ion-content>
