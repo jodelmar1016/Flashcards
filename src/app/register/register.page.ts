@@ -73,6 +73,11 @@ export class RegisterPage implements OnInit {
         this.signUpForm.reset()
         this.router.navigate(["/home"]);
       })
+      .catch(error => {
+        if(error.code == "auth/email-already-in-use"){
+          this.errorMessage = "The email address is already in use by another account."
+        }
+      })
     }
   }
 
@@ -88,5 +93,5 @@ export class RegisterPage implements OnInit {
     });
     alert.present()
   }
-
+  
 }
