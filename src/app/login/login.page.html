@@ -21,7 +21,8 @@
           <p>{{ errorMessage }}</p>
         </div>
         <div class="forgot-password" *ngIf="errorMessage == 'Incorrect Password'">
-          <a href="reset-password">Forgot Password?</a>
+          <!-- <a href="reset-password">Forgot Password?</a> -->
+          <p (click)="resetPass()">Forgot Password?</p>
         </div>
       </div>
     </form>
