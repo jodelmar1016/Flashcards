@@ -71,9 +71,11 @@ export class HomePage {
       this.selectedSubject = data.data.subject_Title;
       this.subjectID = data.data.subject_ID;
       // Get all sets under selected subject
-      this.dataService.getSets(this.subjectID).subscribe(res => {
-        this.sets = res
-      })
+      if(this.selectedSubject != '' && this.subjectID != ''){
+        this.dataService.getSets(this.subjectID).subscribe(res => {
+          this.sets = res
+        })
+      }
       // if(this.subjectID == ""){
       //   console.log("TEST")
       // }
