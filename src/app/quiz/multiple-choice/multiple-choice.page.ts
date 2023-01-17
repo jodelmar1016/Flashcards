@@ -16,6 +16,7 @@ export class MultipleChoicePage implements OnInit {
   timeLeft: number = 30
   selectedAnswer: any = ""
   isFinish: boolean = false
+  answerCorrect: boolean = false
   message: string = ""
   questions: any
   // questions = [
@@ -115,8 +116,10 @@ export class MultipleChoicePage implements OnInit {
     if(this.checkAnswer(this.selectedAnswer, this.index)){
       this.score++
       this.message = "Correct!"
+      this.answerCorrect = true
     }
     else{
+      this.answerCorrect = false
       this.message = "Answer is: "+this.questions[this.index].correct
     }
     if(this.index == this.questions.length-1){

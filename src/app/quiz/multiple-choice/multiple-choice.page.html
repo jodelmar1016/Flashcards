@@ -15,13 +15,13 @@
       <h1>{{ timeLeft }}</h1>
       <ion-card>
         <ion-card-content>
-          {{ questions[index].text }}
+          <b>{{ questions[index].text }}</b>
         </ion-card-content>
       </ion-card>
     </div>
 
     <div class="mid">
-      <ion-text color="success">
+      <ion-text [color]="answerCorrect? 'success' : 'danger'">
         <h1>{{ message }}</h1>
       </ion-text>
     </div>
@@ -40,8 +40,4 @@
       </ion-button>
     </div>
   </div>
-  
-  <!-- <ion-button (click)="startTimer()">Start Timer</ion-button>
-  <ion-button (click)="stopTimer()">Stop Timer</ion-button>
-  <div>Elapsed Time: {{ timeLeft }} seconds</div> -->
 </ion-content>
