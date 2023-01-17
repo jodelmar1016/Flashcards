@@ -3,6 +3,7 @@ import { AlertController, ModalController } from '@ionic/angular';
 import { SelectSubjectPage } from '../modals/select-subject/select-subject.page';
 import { DataServiceService } from '../services/data-service.service';
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,11 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  userID: any = sessionStorage.getItem('user_id')
 
   // Subject container
-  subject: any = []
-
-  selectedSubject: string = "All"
-  subjectID: string = ""
+  selectedSubject: string = "SELECT"
+  subjectID: any = ""
 
   // Sets container
   sets: any = []
@@ -24,13 +24,14 @@ export class HomePage {
     private alertCtrl: AlertController,
     private modalCtrl: ModalController,
     private dataService: DataServiceService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private router: Router,
   ) {
-    // Get all subject
-    this.dataService.getSubject().subscribe(res=>{
-      this.subject=res
-    })
+    console.log(sessionStorage.length)
+    // this.authService.getUserInfo()
   }
+
+  ngOnInit() {}
 
   async createSet(){
     const alert = await this.alertCtrl.create({
@@ -50,7 +51,7 @@ export class HomePage {
         {
           text: "Add",
           handler: (res) => {
-            // this.data.push({title: res.title, noOfCards: "0"})
+            this.dataService.addSet(res.title, this.subjectID)
           }
         }
       ]
@@ -62,8 +63,7 @@ export class HomePage {
   async selectSubject(){
     // Create Modal
     const modal = await this.modalCtrl.create({
-      component: SelectSubjectPage,
-      componentProps: {subject: this.subject}
+      component: SelectSubjectPage
     });
 
     // On modal dismiss, get title and Id
@@ -71,10 +71,17 @@ export class HomePage {
       this.selectedSubject = data.data.subject_Title;
       this.subjectID = data.data.subject_ID;
       // Get all sets under selected subject
-      this.dataService.getSets(this.subjectID).subscribe(res => {
-        this.sets = res
-      })
-      // this.dataService.getCards()
+      if(this.selectedSubject != '' && this.subjectID != ''){
+        this.dataService.getSets(this.subjectID).subscribe(res => {
+          this.sets = res
+        })
+      }
+      // if(this.subjectID == ""){
+      //   console.log("TEST")
+      // }
+      // else{
+        
+      // }
     });
 
     await modal.present()
@@ -82,6 +89,10 @@ export class HomePage {
 
   gotoCardList(set_id: string, set_title: string){
     this.navCtrl.navigateForward('card-list',{state: {setID: set_id, subjectID: this.subjectID, setTitle: set_title}})
+  }
+
+  gotoReview(sets: any){
+    this.navCtrl.navigateForward('review',{state: {sets: sets, subjectID: this.subjectID}})
   }
 
 

@@ -1,8 +1,9 @@
 <ion-app>
   <ion-menu contentId="main" menuId="main-menu">
     <ion-header class="menu-header">
-      <ion-img class="user-image" src="../../../assets/user.png"></ion-img>
-      <p>Albert Einstein</p>
+      <!-- <ion-img class="user-image" src="../../../assets/user.png"></ion-img>
+      <p>{{ name }}</p> -->
+      <ion-title>Menu</ion-title>
     </ion-header>
     <ion-content color="background">
       <ion-menu-toggle>
@@ -27,12 +28,17 @@
           <ion-label>About</ion-label>
         </ion-item>
 
+        <ion-item routerLink="/faq" color="background">
+          <ion-icon slot="start" name="help-circle"></ion-icon>
+          <ion-label>FAQ's</ion-label>
+        </ion-item>
+
         <ion-item routerLink="/help-page" color="background">
           <ion-icon slot="start" name="help-circle"></ion-icon>
           <ion-label>Help</ion-label>
         </ion-item>
 
-        <ion-item routerLink="/login" color="background">
+        <ion-item (click)="logout()" color="background">
           <ion-icon slot="start" name="log-out"></ion-icon>
           <ion-label>Logout</ion-label>
         </ion-item>

@@ -36,6 +36,10 @@ export class EditModalPage implements OnInit {
           text: 'Delete',
           handler: () => {
             this.dataService.deleteCard(this.data.subjectID, this.data.setID, this.card.id)
+            // update number of cards
+            this.dataService.getCards(this.data.subjectID, this.data.setID).subscribe(res => {
+              this.dataService.updateNoOfCards(this.data.subjectID, this.data.setID, res.length)
+            })
             this.modalCtrl.dismiss()
           }
         },
@@ -47,12 +51,12 @@ export class EditModalPage implements OnInit {
 
   async updateCard(){
     await this.dataService.updateCard(this.card, this.data.subjectID, this.data.setID, this.card.id)
+    this.modalCtrl.dismiss();
     const toast = await this.toastCtrl.create({
       message: 'Card Updated!',
       duration: 2000
     });
     toast.present();
-    this.modalCtrl.dismiss();
   }
 
 }

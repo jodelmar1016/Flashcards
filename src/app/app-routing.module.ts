@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'landing',
     pathMatch: 'full'
   },
   {
@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
-  },  {
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
@@ -58,6 +59,27 @@ const routes: Routes = [
     path: 'add-cards',
     loadChildren: () => import('./modals/add-cards/add-cards.module').then( m => m.AddCardsPageModule)
   },
+  {
+    path: 'edit-subject',
+    loadChildren: () => import('./modals/edit-subject/edit-subject.module').then( m => m.EditSubjectPageModule)
+  },
+  {
+    path: 'edit-set',
+    loadChildren: () => import('./modals/edit-set/edit-set.module').then( m => m.EditSetPageModule)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+  },
+  {
+    path: 'change-password',
+    loadChildren: () => import('./change-password/change-password.module').then( m => m.ChangePasswordPageModule)
+  },
+  {
+    path: 'faq',
+    loadChildren: () => import('./faq/faq.module').then( m => m.FaqPageModule)
+  },
+
 
 ];
 

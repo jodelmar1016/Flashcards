@@ -3,7 +3,9 @@ import { AlertController, ModalController } from '@ionic/angular';
 import { EditModalPage } from '../modals/edit-modal/edit-modal.page';
 import { DataServiceService } from '../services/data-service.service';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { AddCardsPage } from '../modals/add-cards/add-cards.page';
+import { EditSetPage } from '../modals/edit-set/edit-set.page';
 
 @Component({
   selector: 'app-card-list',
@@ -21,6 +23,7 @@ export class CardListPage implements OnInit {
     private alertCtrl: AlertController,
     private modalCtrl: ModalController,
     private router: Router,
+    private navCtrl: NavController,
     private dataService: DataServiceService
   ) { 
     this.data = this.router.getCurrentNavigation()?.extras.state;
@@ -46,10 +49,20 @@ export class CardListPage implements OnInit {
       component: EditModalPage,
       componentProps: {card: card, data: this.data},
       breakpoints: [0, 0.5, 0.8],
-      initialBreakpoint: 0.8
+      initialBreakpoint: 0.5
     });
 
     await modal.present()
   }
 
+  async editSet(){
+    const modal = await this.modalCtrl.create({
+      component: EditSetPage,
+      componentProps: {data: this.data},
+      initialBreakpoint: 0.5
+    });
+
+    await modal.present()
+  }
+  
 }

@@ -4,17 +4,15 @@
     align-items: center;
     text-align: center;
     border: 1px solid var(--ion-color-text);
-    background-color: var(--ion-color-light);
+    background-color: whitesmoke;
     border-radius: 10px;
-    height: 320px;
+    height: 75%;
     margin: 20px 30px;
     padding: 10px;
 }
 .controls{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0 20px;
+    margin: 0 30px;
 }
-.btn {
-    width: 150px;
-}
+// .btn {
+//     width: 150px;
+// }

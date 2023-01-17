@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Set</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="data">
+    <ion-item>
+      <ion-label position="stacked">Set</ion-label>
+      <ion-input [(ngModel)]="data.setTitle"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="updateSet()" color="text" expand="block">
+      <ion-icon slot="start" name="save"></ion-icon>
+      Update
+    </ion-button>
+    <ion-button (click)="deleteSet()" color="danger" expand="block">
+      <ion-icon slot="start" name="trash"></ion-icon>
+      Delete
+    </ion-button>
+  </div>
+</ion-content>

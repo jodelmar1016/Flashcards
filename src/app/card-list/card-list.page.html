@@ -1,21 +1,38 @@
 <ion-header>
   <ion-toolbar color="text">
     <ion-buttons slot="start">
-      <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
-      </ion-buttons>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>{{ data.setTitle }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="editSet()">
+        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="background">
+
   <div class="container">
+    <ion-card *ngFor="let item of cardList" (click)="openCard(item)">
+      <ion-card-header>
+        <ion-card-title>{{ item.term }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ item.definition }}
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- <div class="container">
     <div class="item-container" *ngFor="let item of cardList" (click)="openCard(item)">
       <h4>{{ item.term }}</h4>
       <p>{{ item.definition }}</p>
     </div>
-  </div>
+  </div> -->
+
+
   <div class="btn">
     <ion-button (click)="addCard()" color="text" fill="solid" shape="round">
       <ion-icon slot="start" name="add"></ion-icon>

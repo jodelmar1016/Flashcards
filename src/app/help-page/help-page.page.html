@@ -8,5 +8,17 @@
 </ion-header>
 
 <ion-content color="background">
-
+  <ion-text color="text" class="ion-text-center">
+    <h1>How to use?</h1>
+  </ion-text>
+  <div class="container">
+    <ng-container *ngFor="let item of guide">
+    <ion-item color="background">
+      <ion-text color="text">
+        <h4>{{ item.q }}</h4>
+        <p>{{ item.a }}</p>
+      </ion-text>
+    </ion-item>
+  </ng-container>
+  </div>
 </ion-content>

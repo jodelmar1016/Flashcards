@@ -9,18 +9,21 @@
 
 <ion-content color="background">
   <div class="content">
-    <p>{{ text }}</p>
+    <p>{{ toggle? term : definition }}</p>
   </div>
   <div class="controls">
-    <ion-button size="small" color="text" fill="solid" shape="round">
+    <!-- <ion-button size="small" color="text" fill="solid" shape="round">
       <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button> -->
+    <ion-button (click)="toggle = !toggle" size="small" color="text" fill="solid" shape="round" expand="block">
+      <p>{{ toggle? 'HIDE ANSWER':'SHOW ANSWER' }}</p>
     </ion-button>
-    <ion-button class="btn" (click)="handleClick()" size="small" color="text" fill="solid" shape="round">
-      <p>{{ btnText }}</p>
+    <ion-button (click)="next()" size="small" color="text" fill="solid" shape="round" expand="block">
+      NEXT
     </ion-button>
-    <ion-button size="small" color="text" fill="solid" shape="round">
+    <!-- <ion-button size="small" color="text" fill="solid" shape="round">
       <ion-icon name="chevron-forward-outline"></ion-icon>
-    </ion-button>
+    </ion-button> -->
   </div>
 
 </ion-content>
