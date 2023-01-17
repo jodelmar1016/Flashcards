@@ -33,7 +33,7 @@ export class EditSubjectPage implements OnInit {
 
   async deleteSubject(){
     const alert = await this.alertCtrl.create({
-      header: "Delete Card",
+      header: "Delete Subject",
       subHeader: "Are you sure you want to delete this subject?",
       buttons: [
         {
