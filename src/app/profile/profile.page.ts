@@ -113,4 +113,8 @@ export class ProfilePage implements OnInit {
     alert.present()
   }
 
+  changePass(){
+    this.router.navigateByUrl('/change-password')
+  }
+
 }

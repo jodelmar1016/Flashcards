@@ -27,7 +27,10 @@
       </ion-item>
       <ion-item color="background">
         <ion-label>Password</ion-label>
-        <a slot="end" style="font-size: 12px;" href="change-password">Change Password</a>
+        <!-- <a slot="end" style="font-size: 12px;" href="change-password">Change Password</a> -->
+        <ion-text slot="end" color="primary">
+          <p (click)="changePass()">Change Password</p>
+        </ion-text>
       </ion-item>
     </div>
     
