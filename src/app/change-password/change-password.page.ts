@@ -12,6 +12,9 @@ export class ChangePasswordPage implements OnInit {
   oldPassword: string = ""
   newPassword: string = ""
   confirmPassword: string = ""
+  showPasswordOld: boolean = false
+  showPasswordNew: boolean = false
+  showPasswordConfirm: boolean = false
 
   constructor(
     private alertCtrl: AlertController,
