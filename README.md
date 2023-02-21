@@ -2,25 +2,25 @@
 
 ## Screenshots
 
-![Landing page](screenshots/Landing%20page.jpg | width=100)
-Landing Page
+#### Landing Page
+<img src="screenshots/Landing%20page.jpg" width="250">
 
-![Home page](screenshots/Home%20page.jpg)
-Home page
+#### Home page
+<img src="screenshots/Home%20page.jpg" width="250">
 
-![Cards List](screenshots/Card%20List.jpg)
-Cards List
+#### Cards List
+<img src="screenshots/Card%20List.jpg" width="250">
 
-![Review page](screenshots/Review%20page.jpg)
-Review page
+#### Review page
+<img src="screenshots/Review%20page.jpg" width="250">
 
-![Quiz page](screenshots/Quiz%20page.jpg)
-Quiz page
+#### Quiz page
+<img src="screenshots/Quiz%20page.jpg" width="250">
 
-## ontributors
+## Contributors
 
-Aldrae Nichole Frace
-Kaezza Dianara Battuing
-Kristina Maguddayao
-Maybeline Gabuya
-Larissa Calebag
++ Aldrae Nichole Frace
++ Kaezza Dianara Battuing
++ Kristina Maguddayao
++ Maybeline Gabuya
++ Larissa Calebag
