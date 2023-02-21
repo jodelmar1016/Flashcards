@@ -22,10 +22,30 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirebaseApp(() => initializeApp(
+      {
+        apiKey: "AIzaSyDGBIBfM2wj_dG2tOlTUK8YROUqDg90cyU",
+        authDomain: "flashcards-9b4a2.firebaseapp.com",
+        projectId: "flashcards-9b4a2",
+        storageBucket: "flashcards-9b4a2.appspot.com",
+        messagingSenderId: "251226242662",
+        appId: "1:251226242662:web:cdfa0de4cccbcfecc677a7",
+        measurementId: "G-JB807BLKCX"
+      }
+    )),
     provideFirestore(() => getFirestore()),
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(
+      {
+        apiKey: "AIzaSyDGBIBfM2wj_dG2tOlTUK8YROUqDg90cyU",
+        authDomain: "flashcards-9b4a2.firebaseapp.com",
+        projectId: "flashcards-9b4a2",
+        storageBucket: "flashcards-9b4a2.appspot.com",
+        messagingSenderId: "251226242662",
+        appId: "1:251226242662:web:cdfa0de4cccbcfecc677a7",
+        measurementId: "G-JB807BLKCX"
+      }
+    ),
     FormsModule,
     ReactiveFormsModule
   ],
