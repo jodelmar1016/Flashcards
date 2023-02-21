@@ -2,7 +2,7 @@
 
 ## Screenshots
 
-![Landing page](screenshots/Landing%20page.jpg)
+![Landing page](screenshots/Landing%20page.jpg | width=100)
 Landing Page
 
 ![Home page](screenshots/Home%20page.jpg)
